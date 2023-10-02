@@ -1,13 +1,68 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body{
+  background-image: url('./components/image/back.jpg'); 
+  background-size: cover; 
+  background-attachment: fixed; 
+
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+.p-3 {
+  position: relative;
+  border: 1px solid #348ABF;
+  overflow: hidden;
+}
+
+.p-3::before,
+.p-3::after {
+  content: "";
+  position: absolute;
+  background-color: #348ABF; 
+  transition: transform 0.3s ease-in-out;
+}
+
+.p-3::before {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 6px; 
+  transform: scaleY(0);
+  transform-origin: top;
+}
+
+.p-3::after {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 6px; 
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.p-3:hover::before,
+.p-3:hover::after {
+  transform: scaleY(1);
+  transform-origin: bottom;
+  transform: scaleX(1);
+  transform-origin: right;
+}
+
+.dark-mode {
+  color: #ffffff !important; 
+  background-color: transparent !important;
+}
+
+
+.dark-mode .p-3 {
+  background-color: #333 !important; 
+  border-color: #348ABF !important;
+}
+
+.dark-mode h2,
+.dark-mode p {
+  color: #ffffff !important; 
 }
